@@ -16,7 +16,7 @@
       "description": "True if BOT_TOKEN is bot token else False",
       "required": True
     },
-    "MONGO_URI": {
+    "MONGO_DB_URL": {
       "description": "YOUR MONGO DB URI",
       "required: True
     }
