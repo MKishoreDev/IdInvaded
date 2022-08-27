@@ -10,7 +10,7 @@ API_ID = int(getenv("API_ID"))
 API_HASH = str(getenv("API_HASH"))
 TOKEN = str(getenv("BOT_TOKEN"))
 IS_BOT = bool(getenv("IS_BOT"))
-MONGO_DB_URL = = str(getenv("MONGO_DB_URL"))
+MONGO_DB_URL = str(getenv("MONGO_DB_URL"))
 
 if IS_BOT:
   inv = Client(
