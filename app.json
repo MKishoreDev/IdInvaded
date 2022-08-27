@@ -2,23 +2,23 @@
   "env": {
     "API_ID": {
       "description": "Your APP ID get this from my.telegram.org",
-      "required": True
+      "required": true
     },
     "API_HASH": {
       "description": "Your APP HASH get this from my.telegram.org",
-      "required": True
+      "required": true
     },
     "BOT_TOKEN": {
       "description": "Your BOT-TOKEN or STRING SESSION",
-      "required": True
+      "required": true
     },
     "IS_BOT": {
       "description": "True if BOT_TOKEN is bot token else False",
-      "required": True
+      "required": true
     },
     "MONGO_DB_URL": {
       "description": "YOUR MONGO DB URI",
-      "required: True
+      "required": true
     }
   }
 }
