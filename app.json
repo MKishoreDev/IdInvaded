@@ -5,7 +5,7 @@
       "required": True
     },
     "API_HASH": {
-      "description": "Your APP HASH get this from m>
+      "description": "Your APP HASH get this from my.telegram.org",
       "required": True
     },
     "BOT_TOKEN": {
