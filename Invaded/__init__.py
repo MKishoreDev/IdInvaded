@@ -10,7 +10,7 @@ API_ID = int(getenv("API_ID"))
 API_HASH = str(getenv("API_HASH"))
 TOKEN = str(getenv("BOT_TOKEN"))
 IS_BOT = bool(getenv("IS_BOT"))
-MONGO_URI = = str(getenv("MONGO_URI"))
+MONGO_DB_URL = = str(getenv("MONGO_DB_URL"))
 
 if IS_BOT:
   inv = Client(
@@ -25,4 +25,4 @@ else:
     session_name=TOKEN
   )
 
-db = MongoClient(MONGO_URI).invaded
+db = MongoClient(MONGO_DB_URL).invaded
