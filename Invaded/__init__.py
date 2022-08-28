@@ -21,6 +21,7 @@ MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb
 
 if IS_BOT:
   inv = Client(
+    name="Invaded",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=TOKEN
