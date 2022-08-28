@@ -1,4 +1,5 @@
 import time
+import asyncio
 import re
 import datetime
 import random
@@ -66,11 +67,11 @@ async def test(_, m: Message):
     if m.chat.type == enums.ChatType.PRIVATE:
         uptime = get_readable_time((time.time() - StartTime))
         kk = await m.reply(text="`Analyzing The User`")
-        time.sleep(2)
+        asyncio.sleep(2)
         mm = await kk.edit_text("`...`")
-        time.sleep(2)
+        asyncio.sleep(2)
         ll = await mm.edit_text("`Processing...`")
-        time.sleep(3)
+        asyncio.sleep(3)
         await ll.delete()
         await m.reply_video(
             "https://telegra.ph/file/b011b50739d2f02a82ed6.mp4",
@@ -82,7 +83,7 @@ async def test(_, m: Message):
     if not m.chat.type == enums.ChatType.PRIVATE:
         uptime = get_readable_time((time.time() - StartTime))
         kk = await m.reply(text="`Analyzing The User...`")
-        time.sleep(2)
+        asyncio.sleep(2)
         await kk.delete()
         await m.reply_video(
             "https://telegra.ph/file/ebc3237529228cb87b99f.mp4",
