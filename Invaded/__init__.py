@@ -27,9 +27,10 @@ if IS_BOT:
   )
 else:
   inv = Client(
+    name="Invaded",
     api_id=API_ID,
     api_hash=API_HASH,
-    name=TOKEN
+    session_name=TOKEN
   )
 
 db = MongoClient(MONGO_DB_URL).invaded
