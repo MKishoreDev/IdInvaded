@@ -73,8 +73,8 @@ async def test(_, m: Message):
         ll = await mm.edit_text("`Processing...`")
         asyncio.sleep(3)
         await ll.delete()
-        await m.reply_video(
-            "https://telegra.ph/file/b011b50739d2f02a82ed6.mp4",
+        await m.reply_photo(
+            "https://telegra.ph/file/e9a7b101e8fcc7e6b7381.jpg",
             caption=PM_START_TEXT.format(
                 m.from_user.mention, uptime
             ),
