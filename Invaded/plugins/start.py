@@ -93,7 +93,7 @@ async def test(_, m: Message):
     if not m.chat.type == enums.ChatType.PRIVATE:
         uptime = get_readable_time((time.time() - StartTime))
         count = await inv.get_chat_members_count(m.chat.id)
-        admins = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+        admins = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
         bots = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
         msgc = await inv.search_messages_count(m.chat.id)
         kk = await m.reply(text="`Analyzing The User...`")
