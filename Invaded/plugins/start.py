@@ -61,8 +61,15 @@ PM_START_TEXT = """
 """
 
 GROUP_START_TEXT = """
-<b>Hoi {}, I'm Alive In {}</b>
-<b>From:</b> `{}`
+`Hello There I Am` `I⊃：INVΛ⊃≡⊃` `The Judgement Enforcing System`
+
+**Invaded Analysis Report :-**
+ ➛ **Group:** {}
+ ➛ **ID:** `{}`
+ ➛ **Members Count:** `{}`
+ ➛ **Admins Count:** `{}`
+ ➛ **Bots Count:** `{}`
+ ➛ **Message Count:** `{}`
 """
 
 @inv.on_message(invaded_cmd("start"))
@@ -85,15 +92,22 @@ async def test(_, m: Message):
         )
     if not m.chat.type == enums.ChatType.PRIVATE:
         uptime = get_readable_time((time.time() - StartTime))
+        count = await inv.get_chat_members_count(m.chat.id)
+        admins = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+        bots = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
+        msgc = await inv.search_messages_count(m.chat.id)
         kk = await m.reply(text="`Analyzing The User...`")
         asyncio.sleep(2)
         await kk.delete()
-        await m.reply_video(
-            "https://telegra.ph/file/ebc3237529228cb87b99f.mp4",
+        await m.reply_photo(
+            "https://telegra.ph/file/83b667369505a14c8fef2.jpg",
             caption=GROUP_START_TEXT.format(
-                m.from_user.mention,
-                m.chat.title,
-                uptime,
+                m.chat.mention,
+                m.chat.id,
+                count,
+                admins
+                bots,
+                msgc
                 reply_markup=InlineKeyboardMarkup(buttons),
             ),
         )
