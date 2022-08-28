@@ -98,7 +98,7 @@ async def test(_, m: Message):
         bots = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
         msgc = await inv.search_messages_count(m.chat.id)
         kk = await m.reply(text="`Analyzing The User...`")
-        asyncio.sleep(2)
+       # asyncio.sleep(2)
         await kk.delete()
         await m.reply_photo(
             "https://telegra.ph/file/83b667369505a14c8fef2.jpg",
