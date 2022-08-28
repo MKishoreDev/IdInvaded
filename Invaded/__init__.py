@@ -4,7 +4,7 @@ import importlib
 import logging
 import sys
 from pathlib import Path
-from pyrogram import Client
+from pyrogram import Client, filters
 from os import getenv
 from dotenv import load_dotenv
 from pymongo import MongoClient
@@ -22,6 +22,10 @@ API_HASH = str("25eb99fd1c9fd345193c0390936c459d")
 TOKEN = str("5739129053:AAHA1BoiPjNb8q22yDIXxDnb9Lj_FbGScUo")
 IS_BOT = True
 MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
+
+def invaded_cmd(com):
+  return filters.command(com, prefixes=["?","$","!","/",".","inv","invades","Inv","Invaded"])
+
 
 
 if IS_BOT:
@@ -60,5 +64,3 @@ for name in files:
         plugin_name = thepath.stem
         load_plugins(plugin_name.replace(".py", ""))
 
-def invaded_cmd(com):
-  return filters.command(com, prefixes=["?","$","!","/",".","inv","invades","Inv","Invaded"])
