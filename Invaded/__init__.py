@@ -23,8 +23,6 @@ TOKEN = str("5739129053:AAHA1BoiPjNb8q22yDIXxDnb9Lj_FbGScUo")
 IS_BOT = True
 MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
 
-def invaded_cmd(com):
-  return filters.command(com, prefixes=["?","$","!","/",".","inv ","invades ","Inv ","Invaded "])
 
 
 
@@ -43,6 +41,13 @@ else:
     session_string=TOKEN
   )
 
+
+inv.start()
+x = inv.get_me()
+BOT_USERNAME = x.username
+BOT_NAME = x.first_name + (x.last_name or "")
+BOT_ID = x.id
+
 db = MongoClient(MONGO_DB_URL).invaded
 StartTime = time.time()
 
@@ -55,6 +60,11 @@ def load_plugins(plugin_name):
     spec.loader.exec_module(load)
     sys.modules["Invaded.plugins." + plugin_name] = load
     print("Imported --> " + plugin_name)
+
+def invaded_cmd(com):
+  return filters.command([com, f"{com}@{BOT_USERNAME}"], prefixes=["?","$","!","/",".","inv ","invades ","Inv ","Invaded "])
+
+
 
 path = "Invaded/plugins/*.py"
 files = glob.glob(path)
