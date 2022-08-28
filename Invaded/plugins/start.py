@@ -50,7 +50,7 @@ buttons = [
 
 
 PM_START_TEXT = """
-`Hello I Am` `I⊃：INVΛ⊃≡⊃` `The Judgement Enforcing System`
+`Hello There I Am` `I⊃：INVΛ⊃≡⊃` `The Judgement Enforcing System`
 
 **Invaded Analysis Report :-**
  ➛ **User:** {}
