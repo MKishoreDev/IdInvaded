@@ -107,7 +107,7 @@ async def test(_, m: Message):
                 count,
                 admins,
                 bots,
-                msgc
-                reply_markup=InlineKeyboardMarkup(buttons),
+                msgc,
+                reply_markup=InlineKeyboardMarkup(buttons)
             ),
         )
