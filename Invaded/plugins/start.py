@@ -50,11 +50,9 @@ buttons = [
 
 
 PM_START_TEXT = """
-**Welcome Mr/Mrs**, 
+`Hello I Am` `I⊃：INVΛ⊃≡⊃` `The Judgement Enforcing System`
 
-`I Am I⊃：INVΛ⊃≡⊃ The Judgement Enforcing System`
-
-*Invaded Analysis Report :-*
+**Invaded Analysis Report :-**
  ➛ **User:** {}
  ➛ **ID:** `{}`
  ➛ **Is Restricted:** `No`
