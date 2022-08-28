@@ -61,7 +61,7 @@ GROUP_START_TEXT = """
 <b>From:</b> `{}`
 """
 
-@inv.on_message(invaded_cmd("start")
+@inv.on_message(invaded_cmd("start"))
 async def test(_, m: Message):
     if m.chat.type == enums.ChatType.PRIVATE:
         uptime = get_readable_time((time.time() - StartTime))
