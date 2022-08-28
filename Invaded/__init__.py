@@ -5,18 +5,18 @@ from pymongo import MongoClient
 
 
 load_dotenv()
-try:
+"""
    API_ID = int(getenv("API_ID"))
    API_HASH = str(getenv("API_HASH"))
    TOKEN = str(getenv("BOT_TOKEN"))
    IS_BOT = bool(getenv("IS_BOT"))
    MONGO_DB_URL = str(getenv("MONGO_DB_URL"))
-except:
-   API_ID = int("8332539")
-   API_HASH = str("25eb99fd1c9fd345193c0390936c459d")
-   TOKEN = str("5739129053:AAHA1BoiPjNb8q22yDIXxDnb9Lj_FbGScUo")
-   IS_BOT = bool(True)
-   MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
+"""
+API_ID = int("8332539")
+API_HASH = str("25eb99fd1c9fd345193c0390936c459d")
+TOKEN = str("5739129053:AAHA1BoiPjNb8q22yDIXxDnb9Lj_FbGScUo")
+IS_BOT = True
+MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
 
 
 if IS_BOT:
