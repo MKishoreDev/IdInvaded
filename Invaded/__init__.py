@@ -29,7 +29,7 @@ else:
   inv = Client(
     api_id=API_ID,
     api_hash=API_HASH,
-    session_name=TOKEN
+    name=TOKEN
   )
 
 db = MongoClient(MONGO_DB_URL).invaded
