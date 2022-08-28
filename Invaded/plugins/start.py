@@ -50,11 +50,16 @@ buttons = [
 
 
 PM_START_TEXT = """
-<b>Whassup</b> {}, `I'm An Anime Boy Themed Group Management Bot!`
-➖➖➖➖➖➖➖➖➖➖➖➖➖
-• `Alive Time:` `{}`
-➖➖➖➖➖➖➖➖➖➖➖➖➖
-<b>Keep Your Group Secure From Spammers by Adding me! ××</b>
+**Welcome Mr/Mrs**, 
+
+`I Am I⊃：INVΛ⊃≡⊃ The Judgement Enforcing System`
+
+*Invaded Analysis Report :-*
+ ➛ **User:** {}
+ ➛ **ID:** `{}`
+ ➛ **Is Restricted:** `{}`
+ ➛ **Status:** `{}`
+ ➛ **Crime Coefficient:** `{}`
 """
 
 GROUP_START_TEXT = """
@@ -76,7 +81,7 @@ async def test(_, m: Message):
         await m.reply_photo(
             "https://telegra.ph/file/e9a7b101e8fcc7e6b7381.jpg",
             caption=PM_START_TEXT.format(
-                m.from_user.mention, uptime
+                m.from_user.mention, m.from_user.id
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
         )
