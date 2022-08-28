@@ -64,7 +64,7 @@ GROUP_START_TEXT = """
 `Hello There I Am` `I⊃：INVΛ⊃≡⊃` `The Judgement Enforcing System`
 
 **Invaded Analysis Report :-**
- ➛ **Group:** {}
+ ➛ **Group:** `{}`
  ➛ **ID:** `{}`
  ➛ **Members Count:** `{}`
  ➛ **Admins Count:** `{}`
@@ -102,7 +102,7 @@ async def test(_, m: Message):
         await m.reply_photo(
             "https://telegra.ph/file/83b667369505a14c8fef2.jpg",
             caption=GROUP_START_TEXT.format(
-                m.chat.mention,
+                m.chat.title,
                 m.chat.id,
                 count,
                 admins,
