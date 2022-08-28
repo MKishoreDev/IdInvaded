@@ -26,3 +26,4 @@ else:
   )
 
 db = MongoClient(MONGO_DB_URL).invaded
+HELP_COMMANDS = {}
