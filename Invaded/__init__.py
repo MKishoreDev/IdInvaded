@@ -39,6 +39,7 @@ else:
   )
 
 db = MongoClient(MONGO_DB_URL).invaded
+StartTime = time.time()
 
 def load_plugins(plugin_name):
     path = Path(f"Invaded/plugins/{plugin_name}.py")
