@@ -24,7 +24,7 @@ IS_BOT = True
 MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
 
 def invaded_cmd(com):
-  return filters.command(com, prefixes=["?","$","!","/",".","inv","invades","Inv","Invaded"])
+  return filters.command(com, prefixes=["?","$","!","/",".","inv ","invades ","Inv ","Invaded "])
 
 
 
