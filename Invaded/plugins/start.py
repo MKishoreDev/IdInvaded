@@ -112,5 +112,5 @@ async def test(_, m: Message):
                 reply_markup=InlineKeyboardMarkup(buttons)
             ),
         )
-     except Exception as e
+     except Exception as e:
         print(e)
