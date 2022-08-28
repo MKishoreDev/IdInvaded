@@ -93,10 +93,10 @@ async def test(_, m: Message):
     if not m.chat.type == enums.ChatType.PRIVATE:
      try:
         uptime = get_readable_time((time.time() - StartTime))
-        count = inv.get_chat_members_count(m.chat.id)
-        admins = inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
-        bots = inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
-        msgc = inv.search_messages_count(m.chat.id)
+        count = await inv.get_chat_members_count(m.chat.id)
+        admins = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
+        bots = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
+        msgc = await inv.search_messages_count(m.chat.id)
         kk = await m.reply(text="`Analyzing The User...`")
         asyncio.sleep(2)
         await kk.delete()
