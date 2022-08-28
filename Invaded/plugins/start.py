@@ -91,7 +91,6 @@ async def test(_, m: Message):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     if not m.chat.type == enums.ChatType.PRIVATE:
-     try:
         uptime = get_readable_time((time.time() - StartTime))
         count = await inv.get_chat_members_count(m.chat.id)
         admins = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
