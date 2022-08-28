@@ -77,11 +77,11 @@ async def test(_, m: Message):
     if m.chat.type == enums.ChatType.PRIVATE:
         uptime = get_readable_time((time.time() - StartTime))
         kk = await m.reply(text="`Analyzing The User`")
-        asyncio.sleep(2)
+        await asyncio.sleep(2)
         mm = await kk.edit_text("`...`")
-        asyncio.sleep(2)
+        await asyncio.sleep(2)
         ll = await mm.edit_text("`Processing...`")
-        asyncio.sleep(3)
+        await asyncio.sleep(3)
         await ll.delete()
         await m.reply_photo(
             "https://telegra.ph/file/e9a7b101e8fcc7e6b7381.jpg",
@@ -97,7 +97,7 @@ async def test(_, m: Message):
         bots = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
         msgc = await inv.search_messages_count(m.chat.id)
         kk = await m.reply(text="`Analyzing The User...`")
-        asyncio.sleep(2)
+        await asyncio.sleep(2)
         await kk.delete()
         await m.reply_photo(
             "https://telegra.ph/file/83b667369505a14c8fef2.jpg",
