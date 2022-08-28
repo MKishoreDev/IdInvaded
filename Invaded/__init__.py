@@ -16,7 +16,7 @@ except:
    API_HASH = str("25eb99fd1c9fd345193c0390936c459d")
    TOKEN = str("5739129053:AAHA1BoiPjNb8q22yDIXxDnb9Lj_FbGScUo")
    IS_BOT = bool(True)
-   MONGO_DB_URL = str(getenv("MONGO_DB_URL"))
+   MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
 
 
 if IS_BOT:
