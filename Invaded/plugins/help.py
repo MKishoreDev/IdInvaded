@@ -1,6 +1,6 @@
 from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Invaded import inv, inv_modules, invaded_cmd
+from Invaded import inv, invaded_cmd
 from typing import List , Any
 
 HELP_STRING = """
@@ -10,11 +10,6 @@ Report issues @idk
 
 @inv.on_message(invaded_cmd('help'))
 def invhelp(_,message):
-    if message.chat.type == enums.ChatType.PRIVATE:
-        keyboard = []
-        for x in invaded_command:
-            keyboard.append([InlineKeyboardButton(f"{x['Module_Name']}" , callback_data=f"help:{x['Module_Name']}")])
-
 
         inv.send_message(message.chat.id , HELP_STRING , reply_markup=InlineKeyboardMarkup(keyboard))
 
