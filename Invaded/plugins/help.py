@@ -8,7 +8,7 @@ Hey, see my commands down
 Report issues @idk
 """
 
-@inv.on_message(invaded_cmd('help'))
+@inv.on_message(invaded_cmd('help') & filters.group)
 def invhelp(_,message):
 
         inv.send_photo(message.chat.id , "https://telegra.ph/file/cd1611c22cc9ad650e0de.jpg" ,  caption=HELP_STRING , reply_markup=InlineKeyboardMarkup(
