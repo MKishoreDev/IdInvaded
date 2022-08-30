@@ -1,8 +1,6 @@
-from pyrogram import filters
-from pyrogram.types.bots_and_keyboards import callback_game
-from pyrogram.types.bots_and_keyboards.inline_keyboard_button import InlineKeyboardButton
-from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeyboardMarkup 
-from Invaded import inv, inv_modules, invaded_command
+from pyrogram import filtersz enums
+from pyrogram.types import callback_data, InlineKeyboardButton, InlineKeyboardMarkup
+from Invaded import inv, inv_modules, invaded_cmd
 from typing import List , Any
 
 HELP_STRING = """
@@ -10,9 +8,9 @@ Hey, see my commands down
 Report issues @idk
 """
 
-@inv.on_message(invaded_command('help'))
+@inv.on_message(invaded_cmd('help'))
 def invhelp(_,message):
-    if message.chat.type == "private":
+    if message.chat.type == enums.ChatType.PRIVATE:
         keyboard = []
         for x in invaded_command:
             keyboard.append([InlineKeyboardButton(f"{x['Module_Name']}" , callback_data=f"help:{x['Module_Name']}")])
