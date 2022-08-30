@@ -50,6 +50,7 @@ BOT_ID = x.id
 
 db = MongoClient(MONGO_DB_URL).invaded
 StartTime = time.time()
+inv_modules = []
 
 def load_plugins(plugin_name):
     path = Path(f"Invaded/plugins/{plugin_name}.py")
