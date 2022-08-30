@@ -91,6 +91,7 @@ async def test(_, m: Message):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     if not m.chat.type == enums.ChatType.PRIVATE:
+     try:
         uptime = get_readable_time((time.time() - StartTime))
         count = await inv.get_chat_members_count(m.chat.id)
         admins = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
@@ -110,3 +111,6 @@ async def test(_, m: Message):
                 msgc),
                 reply_markup=InlineKeyboardMarkup(buttons)
         )
+     except Exception as e:
+         await m.reply_photo("https://c4.wallpaperflare.com/wallpaper/976/117/318/anime-girls-404-not-found-glowing-eyes-girls-frontline-wallpaper-preview.jpg", caption=f"`404 Error Occurred Failed To Start The Invaded`\n\n `{e}`")
+         return
