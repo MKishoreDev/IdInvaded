@@ -12,7 +12,7 @@ Report issues @idk
 def invhelp(_,message):
     if message.chat.type == enums.ChatType.PRIVATE:
         keyboard = []
-        for x in invaded_cmd:
+        for x in inv_modules:
             keyboard.append([InlineKeyboardButton(f"{x['Module_Name']}" , callback_data=f"help:{x['Module_Name']}")])
 
 
