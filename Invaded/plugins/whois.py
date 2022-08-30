@@ -17,7 +17,7 @@ async def whois(_, m: Message):
     except Exception as e:
         await m.reply_photo("https://c4.wallpaperflare.com/wallpaper/976/117/318/anime-girls-404-not-found-glowing-eyes-girls-frontline-wallpaper-preview.jpg", caption=f"`404 Error Occurred Failed To Get Data Of The User`\n\n `{e}`")
         return
-   if data.photo:
+    if data.photo:
      try:
         pic = await inv.download_media(data.photo.big_file_id)
         await inv.send_photo(
