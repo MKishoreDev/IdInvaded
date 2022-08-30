@@ -6,10 +6,6 @@ from pyrogram import filters, enums
 
 buttons = [
     [
-        InlineKeyboardButton(
-            text=f"✲ Summon Me ✲", url=f"telegram.me/Kawaii_Robot?startgroup=true")
-    ],
-    [
         InlineKeyboardButton(text="[► Report Error ◄]", url="https://t.me/Aasf_Cyberking"),
         InlineKeyboardButton(text="[► Get Updates ◄]", url="https://t.me/CityOfCreations"),
     ],
