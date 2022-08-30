@@ -1,38 +1,8 @@
-import time
 import asyncio
-import re
-import datetime
-import random
-import requests
 
-from Invaded import inv, invaded_cmd, StartTime
+from Invaded import inv, invaded_cmd
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import filters, enums
-
-def get_readable_time(seconds: int) -> str:
-    count = 0
-    ping_time = ""
-    time_list = []
-    time_suffix_list = ["s", "m", "h", "days"]
-
-    while count < 4:
-        count += 1
-        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
-    if len(time_list) == 4:
-        ping_time += time_list.pop() + ", "
-
-    time_list.reverse()
-    ping_time += ":".join(time_list)
-
-    return ping_time
-
 
 buttons = [
     [
@@ -75,7 +45,6 @@ GROUP_START_TEXT = """
 @inv.on_message(invaded_cmd("start"))
 async def test(_, m: Message):
     if m.chat.type == enums.ChatType.PRIVATE:
-        uptime = get_readable_time((time.time() - StartTime))
         kk = await m.reply(text="`Analyzing The User`")
         await asyncio.sleep(2)
         mm = await kk.edit_text("`...`")
@@ -92,7 +61,6 @@ async def test(_, m: Message):
         )
     if not m.chat.type == enums.ChatType.PRIVATE:
      try:
-        uptime = get_readable_time((time.time() - StartTime))
         count = inv.get_chat_members_count(m.chat.id)
         admins = inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
         bots = inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
