@@ -1,23 +1,19 @@
 {
   "env": {
     "API_ID": {
-      "description": "Your APP ID get this from my.telegram.org",
+      "description": "Your Api Id Get It from my.telegram.org",
       "required": true
     },
     "API_HASH": {
-      "description": "Your APP HASH get this from my.telegram.org",
+      "description": "Your Api Hash Get It from my.telegram.org",
       "required": true
     },
-    "BOT_TOKEN": {
-      "description": "Your BOT-TOKEN or STRING SESSION",
-      "required": true
-    },
-    "IS_BOT": {
-      "description": "True if BOT_TOKEN is bot token else False",
+    "TOKEN": {
+      "description": "Your Bot's Token Get It From https://telegram.me/Botfather",
       "required": true
     },
     "MONGO_DB_URL": {
-      "description": "YOUR MONGO DB URI",
+      "description": "Your Mongo Db Url Get It From MongoDb.com",
       "required": true
     }
   }
