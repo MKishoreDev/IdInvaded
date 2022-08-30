@@ -1,7 +1,6 @@
 from Invaded import inv, invaded_cmd
 from pyrogram import filters
 from pyrogram.types import Message
-from Invaded.plugins.helpbutton import Whois
 
 @inv.on_message(invaded_cmd("whois"))
 async def whois(_, m: Message):
@@ -34,9 +33,3 @@ async def whois(_, m: Message):
             m.chat.id,
             f"**╒═══「 Appraisal Results: 」**\n**➛ First Name:** `{data.first_name}`\n**➛ Last Name:** `{data.last_name}`\n**➛ Username: @{data.username}**\n**➛ Userlink: {data.mention}**\n**➛ User ID:** `{data.id}`\n**➛ About:** `{boom.bio}`",
         )
-
-__MODULE__ = Whois
-__HELP__ = """
-> /whois - for the user info
-"""
-        
