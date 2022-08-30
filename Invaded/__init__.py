@@ -74,3 +74,4 @@ for name in files:
         plugin_name = thepath.stem
         load_plugins(plugin_name.replace(".py", ""))
 
+inv_modules = []
