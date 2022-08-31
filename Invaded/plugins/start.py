@@ -69,8 +69,8 @@ async def test(_, m: Message):
         await asyncio.sleep(2)
         await kk.delete()
         count = await inv.get_chat_members_count(m.chat.id)
-        admins = inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
-        bots = await ubot.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
+        admins = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
+        bots = await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
         msgc = await ubot.search_messages_count(m.chat.id)
         await m.reply_photo(
             "https://telegra.ph/file/83b667369505a14c8fef2.jpg",
