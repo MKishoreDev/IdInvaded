@@ -2,6 +2,11 @@ from Invaded import inv, invaded_cmd
 from pyrogram import filters
 from pyrogram.types import Message
 
+__MODULE__ = "Whois"
+__HELP__ = """
+• `/whois` - `Get Info/Data Of A User`
+"""
+
 @inv.on_message(invaded_cmd("whois"))
 async def whois(_, m: Message):
     if m.reply_to_message:
