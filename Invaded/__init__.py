@@ -13,12 +13,16 @@ load_dotenv()
 """
    API_ID = int(getenv("API_ID"))
    API_HASH = str(getenv("API_HASH"))
+   APP_ID = int(getenv("APP_ID"))
+   APP_HASH = str(getenv("APP_HASH"))
    TOKEN = str(getenv("TOKEN"))
    SESSION = str(getenv("SESSION"))
    MONGO_DB_URL = str(getenv("MONGO_DB_URL"))
 """
 API_ID = int("8332539")
 API_HASH = str("25eb99fd1c9fd345193c0390936c459d")
+APP_ID = int("9016072")
+APP_HASH = str("7102a41623c9bc2feaff6c8455680c42")
 TOKEN = str("5739129053:AAHA1BoiPjNb8q22yDIXxDnb9Lj_FbGScUo")
 SESSION = "BQCC0VL-8AVWQ4rSEI1HxfdgOSs4Z4yxPrnPudc9lFwpqaW8d0z_UxMY4Y4b66PpN54HbusPbrFZGyfL4cyQC2pRs_F-VBeixxca6C3jiA6lijUiCqHhZmqYpMUF9OMtaPg-Bvrz44MQgX5zc8RuKmBN05iOvZWmteVprpAKy323uex0_BknIZqnK0urWPYYd-0T_kPio56EDu0573dyhBY_SpS3LYhFWCTwsNlkRZwXLMNs9y3ToOvSOHqOm7wBieJ7m_DYz5Zr3I7Dsyhu0TsvJ3XbM-nZ1GDoCTlGJLr-Dlzj2pVrluedzNWapo1LeboOOlPicUSNwL1Ql8WXTsx_UrXeOAA"
 MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
@@ -40,8 +44,8 @@ inv = Client(
 
 ubot = Client(
   "Invaded",
-  api_id=API_ID,
-  api_hash=API_HASH,
+  api_id=APP_ID,
+  api_hash=APP_HASH,
   session_string=SESSION
 )
 
