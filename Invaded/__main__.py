@@ -5,6 +5,7 @@ from Invaded import inv
 from Invaded.plugins import ALL_MODULES
 from pyrogram import idle
 
+FORMAT = "[INFO] %(message)s"
 
 if __name__ == "__main__":
     logging.basicConfig(
