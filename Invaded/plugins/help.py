@@ -117,11 +117,3 @@ async def help_button(client, query):
     )
 
   return await inv.answer_callback_query(query.id)
-        inv.send_photo(message.chat.id , "https://telegra.ph/file/90a0be7175ad57fcaa21e.jpg", caption=HELP_STRING.format(message.from_user.mention, BOT_MENTIOM) , reply_markup=InlineKeyboardMarkup(keyboard))
-
-    else:
-        inv.send_photo(message.chat.id , "https://telegra.ph/file/cd1611c22cc9ad650e0de.jpg" ,  caption=PM_STRING , reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("Click Here To Explore" , url="t.me/Invaded_Robot?start=help")]
-            
-            ]))
