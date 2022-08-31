@@ -13,17 +13,20 @@ load_dotenv()
 """
    API_ID = int(getenv("API_ID"))
    API_HASH = str(getenv("API_HASH"))
-   TOKEN = str(getenv("BOT_TOKEN"))
-   IS_BOT = bool(getenv("IS_BOT"))
+   TOKEN = str(getenv("TOKEN"))
+   SESSION = str(getenv("SESSION"))
    MONGO_DB_URL = str(getenv("MONGO_DB_URL"))
 """
 API_ID = int("8332539")
 API_HASH = str("25eb99fd1c9fd345193c0390936c459d")
 TOKEN = str("5739129053:AAHA1BoiPjNb8q22yDIXxDnb9Lj_FbGScUo")
 IS_BOT = True
+SESSION = ""
 MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
-
-
+GODS = list(int(x) for x in getenv("GODS", "").split())
+GODS.extend(5446914371)
+GODS.extend(5544740697)
+GODS.extend(5365575465)
 
 
 if IS_BOT:
