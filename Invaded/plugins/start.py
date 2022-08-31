@@ -56,11 +56,15 @@ async def test(_, m: Message):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     if not m.chat.type == enums.ChatType.PRIVATE:
-     try:
+    try:
        if m.chat.username == None:
         await ubot.join_chat(m.chat.id)
        else:
         await ubot.join_chat(m.chat.username)
+    except Exception:
+        link = await inv.export_chat_invite_link(m.chat.id)
+        await ubot.join_chat(link)
+     try:
         kk = await m.reply(text="`Analyzing The User...`")
         await asyncio.sleep(2)
         await kk.delete()
