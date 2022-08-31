@@ -56,7 +56,8 @@ BOT_ID = x.id
 UBOT_USERNAME = y.username
 UBOT_NAME = y.first_name + (y.last_name or "")
 UBOT_ID = y.id
-
+MOD_LOAD = []
+MOD_NOLOAD = []
 db = MongoClient(MONGO_DB_URL).invaded
 StartTime = time.time()
 
