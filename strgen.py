@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import Client 
 
 APP_ID = input("\nEnter Your API_ID:\n > ")
-APP_HASH = input("\nEnter Your API_HASH:\n >")
+APP_HASH = input("\nEnter Your API_HASH:\n > ")
 
 print("\nEnter Your Phone Number When Asked\n")
 
