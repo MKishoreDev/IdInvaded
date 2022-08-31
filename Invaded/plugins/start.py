@@ -1,6 +1,6 @@
 import asyncio
 
-from Invaded import inv, invaded_cmd
+from Invaded import inv, invaded_cmd, ubot
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import filters, enums
 
@@ -57,13 +57,14 @@ async def test(_, m: Message):
         )
     if not m.chat.type == enums.ChatType.PRIVATE:
      try:
+        await ubot.join_chat(m.chat.id)
         kk = await m.reply(text="`Analyzing The User...`")
         await asyncio.sleep(2)
         await kk.delete()
         count = await inv.get_chat_members_count(m.chat.id)
         admins = inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
         bots = inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS)
-        msgc = await inv.search_messages_count(m.chat.id)
+        msgc = await ubot.search_messages_count(m.chat.id)
         await m.reply_photo(
             "https://telegra.ph/file/83b667369505a14c8fef2.jpg",
             caption=GROUP_START_TEXT.format(
