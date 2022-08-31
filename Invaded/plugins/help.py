@@ -75,6 +75,9 @@ async def commands_callbacc(_, query):
 @inv.on_callback_query(filters.regex(r"help_(.*?)"))
 async def help_button(client, query):
   home_match = re.match(r"help_home\((.+?)\)", query.data)
+  prev_match = re.match(r"help_prev\((.+?)\)", query.data)
+  next_match = re.match(r"help_next\((.+?)\)", query.data)
+  back_match = re.match(r"help_back", query.data)
   mod_match = re.match(r"help_module\((.+?)\)", query.data)
   create_match = re.match(r"help_create", query.data)
   top_text = """
@@ -102,6 +105,29 @@ async def help_button(client, query):
     await query.message.edit_media(
       media=InputMediaPhoto(PM_PHOTO, caption=PM_START_TEXT),
       reply_markup=PM_KEYBOARD
+    )
+  elif prev_match:
+    curr_page = int(prev_match.group(1))
+    await query.message.edit_caption(
+      caption=top_text,
+      reply_markup=InlineKeyboardMarkup(
+        paginate_modules(curr_page - 1, HELPABLE, "help")
+      )
+    )
+  elif next_match:
+    next_page = int(next_match.group(1))
+    await query.message.edit_caption(
+      caption=top_text,
+      reply_markup=InlineKeyboardMarkup(
+        paginate_modules(next_page + 1, HELPABLE, "help")
+      )
+    )
+  elif back_match:
+    await query.message.edit_caption(
+      caption=top_text,
+      reply_markup=InlineKeyboardMarkup(
+        paginate_modules(0, HELPABLE, "help")
+      )
     )
 
   elif create_match:
