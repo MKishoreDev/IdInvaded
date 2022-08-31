@@ -1,5 +1,5 @@
 class Help_Text:
-    helpp = {
+    help = {
         "whois_help": """
 • /whois - To Get Details/Info About Others
 """
