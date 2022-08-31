@@ -8,8 +8,9 @@ Hey, see my commands down
 Report issues @idk
 """
 PM_STRING = """
-**Hey Wanna Know My Commands**
-`Check It Out By Clicking The Given Button Bellow`
+**Hey Wanna Know My Commands ?**
+
+`Check It Out By Clicking The Given Button Bellow ^_^`
 """
 
 @inv.on_message(invaded_cmd('help'))
