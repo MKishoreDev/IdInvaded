@@ -21,7 +21,7 @@ def invhelp(_,message):
             keyboard.append([InlineKeyboardButton(f"{x['Module_Name']}" , callback_data=f"help:{x['Module_Name']}")])
 
 
-        inv.send_message(message.chat.id , HELP_STRING , reply_markup=InlineKeyboardMarkup(keyboard))
+        inv.send_photo(message.chat.id , "https://telegra.ph/file/90a0be7175ad57fcaa21e.jpg", caption=HELP_STRING , reply_markup=InlineKeyboardMarkup(keyboard))
 
     else:
         inv.send_photo(message.chat.id , "https://telegra.ph/file/cd1611c22cc9ad650e0de.jpg" ,  caption=PM_STRING , reply_markup=InlineKeyboardMarkup(
