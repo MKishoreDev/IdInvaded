@@ -7,6 +7,10 @@ HELP_STRING = """
 Hey, see my commands down
 Report issues @idk
 """
+PM_STRING = """
+**Hey Wanna Know My Commands**
+`Check It Out By Clicking The Given Button Bellow`
+"""
 
 @inv.on_message(invaded_cmd('help'))
 def invhelp(_,message):
@@ -19,8 +23,8 @@ def invhelp(_,message):
         inv.send_message(message.chat.id , HELP_STRING , reply_markup=InlineKeyboardMarkup(keyboard))
 
     else:
-        inv.send_photo(message.chat.id , "https://telegra.ph/file/cd1611c22cc9ad650e0de.jpg" ,  caption=HELP_STRING , reply_markup=InlineKeyboardMarkup(
+        inv.send_photo(message.chat.id , "https://telegra.ph/file/cd1611c22cc9ad650e0de.jpg" ,  caption=PM_STRING , reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Pm me for more details"  , url="t.me/Invaded_Robot?start=help")]
+                [InlineKeyboardButton("Click Here To Explore" , url="t.me/Invaded_Robot?start=help")]
             
             ]))
