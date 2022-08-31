@@ -1,11 +1,14 @@
 from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Invaded import inv, inv_modules, invaded_cmd
+from Invaded import inv, inv_modules, invaded_cmd, BOT_MENTIOM
 from typing import List , Any
 
 HELP_STRING = """
-Hey, see my commands down
-Report issues @idk
+**Hello,** {} `Check My Commands By Clicking The Buttons Give Bellow`
+`I Am {} I Have Lot's Of Features That Makes You Feel Safety On Telegram`
+
+**Note:- All Commands Given Bellow Can Be Used With** `inv`, `Inv`, `invaded`, `Invaded`, `?`, `$`, `!`, `.`, or `/`
+
 """
 PM_STRING = """
 **Hey Wanna Know My Commands ?**
@@ -21,7 +24,7 @@ def invhelp(_,message):
             keyboard.append([InlineKeyboardButton(f"{x['Module_Name']}" , callback_data=f"help:{x['Module_Name']}")])
 
 
-        inv.send_photo(message.chat.id , "https://telegra.ph/file/90a0be7175ad57fcaa21e.jpg", caption=HELP_STRING , reply_markup=InlineKeyboardMarkup(keyboard))
+        inv.send_photo(message.chat.id , "https://telegra.ph/file/90a0be7175ad57fcaa21e.jpg", caption=HELP_STRING.format(message.from_user.mention, BOT_MENTIOM) , reply_markup=InlineKeyboardMarkup(keyboard))
 
     else:
         inv.send_photo(message.chat.id , "https://telegra.ph/file/cd1611c22cc9ad650e0de.jpg" ,  caption=PM_STRING , reply_markup=InlineKeyboardMarkup(
