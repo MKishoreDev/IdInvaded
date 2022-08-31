@@ -2,8 +2,6 @@ from Invaded import inv, invaded_cmd, inv_modules
 from pyrogram import filters
 from pyrogram.types import Message
 
-inv_modules.append({"Module_Name": "whois"})
-
 @inv.on_message(invaded_cmd("whois"))
 async def whois(_, m: Message):
     if m.reply_to_message:
