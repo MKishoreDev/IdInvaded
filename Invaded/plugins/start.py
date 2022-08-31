@@ -5,13 +5,19 @@ from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import filters, enums
 
 PM_PHOTO = "https://telegra.ph/file/e9a7b101e8fcc7e6b7381.jpg"
-buttons = [
+PM_KEYBOARD = [
     [
         InlineKeyboardButton(text="[► Report Error ◄]", url="https://t.me/Aasf_Cyberking"),
         InlineKeyboardButton(text="[► Get Updates ◄]", url="https://t.me/CityOfCreations"),
     ],
     [
-        InlineKeyboardButton(text="⊵ Help Guidelines ⊴", callback_data="help_enter"),
+        InlineKeyboardButton(text="⊵ Help Guidelines ⊴", callback_data="inv_commands"),
+    ],
+]
+buttons = [
+    [
+        InlineKeyboardButton(text="[► Report Error ◄]", url="https://t.me/Aasf_Cyberking"),
+        InlineKeyboardButton(text="[► Get Updates ◄]", url="https://t.me/CityOfCreations"),
     ],
 ]
 
@@ -54,7 +60,7 @@ async def test(_, m: Message):
             caption=PM_START_TEXT.format(
                 m.from_user.mention, m.from_user.id
             ),
-            reply_markup=InlineKeyboardMarkup(buttons),
+            reply_markup=InlineKeyboardMarkup(PM_KEYBOARD),
         )
     if not m.chat.type == enums.ChatType.PRIVATE:
      try:
