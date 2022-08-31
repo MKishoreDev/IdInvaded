@@ -24,7 +24,7 @@ API_HASH = str("25eb99fd1c9fd345193c0390936c459d")
 APP_ID = int("9016072")
 APP_HASH = str("7102a41623c9bc2feaff6c8455680c42")
 TOKEN = str("5739129053:AAHA1BoiPjNb8q22yDIXxDnb9Lj_FbGScUo")
-SESSION = "BQCC0VL-8AVWQ4rSEI1HxfdgOSs4Z4yxPrnPudc9lFwpqaW8d0z_UxMY4Y4b66PpN54HbusPbrFZGyfL4cyQC2pRs_F-VBeixxca6C3jiA6lijUiCqHhZmqYpMUF9OMtaPg-Bvrz44MQgX5zc8RuKmBN05iOvZWmteVprpAKy323uex0_BknIZqnK0urWPYYd-0T_kPio56EDu0573dyhBY_SpS3LYhFWCTwsNlkRZwXLMNs9y3ToOvSOHqOm7wBieJ7m_DYz5Zr3I7Dsyhu0TsvJ3XbM-nZ1GDoCTlGJLr-Dlzj2pVrluedzNWapo1LeboOOlPicUSNwL1Ql8WXTsx_UrXeOAA"
+SESSION = "BQCKXkxImILlQ4iv-j3jfE0hCrxqm0n3qrundYEnFKCok9ChZ14wlc1Mkqe8mldlwOBcHao0XfLQqKZnGG4EsjybI-3vqcvda-azXYawr4M3r-M6LK4wIm1aPY9rAJntKCqiFE5SSd4XPVH8yPug72e1K-vH8CZp2xFkotf2OSDeC3_VB9kHE0IYIwOXcaOz5ZbI3qJTbARkqi43nrBhfGDSsK5VdKZgG0NxhYrgvwTahjGzAuL3wIBP7GvFs4L2IrFKgHNCvofQtYcHL_EXw1DAQgOvWN59Xxq6N5jOMarWQrEkh-ZrAC5AJgYHwDJ9dKu5KnRdhq-bnGoiv5c0xx5PUrXeOAA. "
 MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
 GODS = list(int(x) for x in getenv("GODS", "").split())
 if not 5446914371 in GODS:
