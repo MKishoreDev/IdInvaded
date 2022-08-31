@@ -3,5 +3,4 @@ tgcrypto
 pymongo
 dnspython
 python-dotenv
-datetime
 requests
