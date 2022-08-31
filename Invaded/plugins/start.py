@@ -57,6 +57,9 @@ async def test(_, m: Message):
         )
     if not m.chat.type == enums.ChatType.PRIVATE:
      try:
+       if m.chat.username == None:
+        await ubot.join_chat(m.chat.id)
+       else:
         await ubot.join_chat(m.chat.username)
         kk = await m.reply(text="`Analyzing The User...`")
         await asyncio.sleep(2)
