@@ -1,107 +1,89 @@
-from Invaded import inv, invaded_cmd, BOT_NAME
-from Invaded.plugins.start import PM_START_TEXT, PM_PHOTO, PM_KEYBOARD
-from Invaded.utils.misc import paginate_modules
-from pyrogram import filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
-import re
+import asyncio
 
-async def help_parser(name, keyboard=None):
-  if not keyboard:
-    keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
-    return ("""
-**Hello,** {} `Check My Commands By Clicking The Buttons Give Bellow`
-`I Am {} I Have Lot's Of Features That Makes You Feel Safety On Telegram`
-**Note:- All Commands Given Bellow Can Be Used With** `inv`, `Inv`, `invaded`, `Invaded`, `?`, `$`, `!`, `.`, or `/`
-""".format(name, BOT_NAME), keyboard)
+from Invaded import inv, invaded_cmd, ubot
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram import filters, enums
 
-
-
-@inv.on_message(invaded_cmd("help"))
-async def _help(_, message):
-  text, keyboard = await help_parser(message.from_user.mention)
-  return await message.reply_photo(
-      photo="https://telegra.ph/file/90a0be7175ad57fcaa21e.jpg",
-      caption=text,
-      reply_markup=keyboard
-    )
+PM_PHOTO = "https://telegra.ph/file/e9a7b101e8fcc7e6b7381.jpg"
+buttons = [
+    [
+        InlineKeyboardButton(text="[► Report Error ◄]", url="https://t.me/Aasf_Cyberking"),
+        InlineKeyboardButton(text="[► Get Updates ◄]", url="https://t.me/CityOfCreations"),
+    ],
+    [
+        InlineKeyboardButton(text="⊵ Help Guidelines ⊴", callback_data="help_enter"),
+    ],
+]
 
 
-@inv.on_callback_query(filters.regex("inv_commands"))
-async def commands_callbacc(_, query):
-  text, keyboard = await help_parser(query.from_user.mention)
-  await query.message.edit_media(
-    media=InputMediaPhoto(
-      "https://telegra.ph/file/90a0be7175ad57fcaa21e.jpg",
-      caption=text
-    ),
-    reply_markup=keyboard
-  )
-  return await inv.answer_callback_query(query.id)
+PM_START_TEXT = """
+`Hello There I Am` `I⊃：INVΛ⊃≡⊃` `The Judgement Enforcing System`
 
-@inv.on_callback_query(filters.regex(r"help_(.*?)"))
-async def help_button(client, query):
-  home_match = re.match(r"help_home\((.+?)\)", query.data)
-  mod_match = re.match(r"help_module\((.+?)\)", query.data)
-  prev_match = re.match(r"help_prev\((.+?)\)", query.data)
-  next_match = re.match(r"help_next\((.+?)\)", query.data)
-  back_match = re.match(r"help_back", query.data)
-  create_match = re.match(r"help_create", query.data)
-  top_text = """
-**Hello,** {} `Check My Commands By Clicking The Buttons Give Bellow`
-`I Am {} I Have Lot's Of Features That Makes You Feel Safety On Telegram`
-**Note:- All Commands Given Bellow Can Be Used With** `inv`, `Inv`, `invaded`, `Invaded`, `?`, `$`, `!`, `.`, or `/`
-""".format(query.from_user.first_name, BOT_NAME)
-  if mod_match:
-    module = (mod_match.group(1)).replace(" ", "_")
-    text = (
-        "**{}** `{}`:\n".format(
-          "Here Is The Help For The", HELPABLE[module].__MODULE__
+**Invaded Analysis Report :-**
+ ➛ **User:** {}
+ ➛ **ID:** `{}`
+ ➛ **Is Restricted:** `No`
+ ➛ **Status:** `Civilian`
+ ➛ **Crime Coefficient:** `Under - 100`
+"""
+
+GROUP_START_TEXT = """
+`Hello There I Am` `I⊃：INVΛ⊃≡⊃` `The Judgement Enforcing System`
+
+**Invaded Analysis Report :-**
+ ➛ **Group:** `{}`
+ ➛ **ID:** `{}`
+ ➛ **Members Count:** `{}`
+ ➛ **Admins Count:** `{}`
+ ➛ **Bots Count:** `{}`
+ ➛ **Message Count:** `{}`
+"""
+
+@inv.on_message(invaded_cmd("start"))
+async def test(_, m: Message):
+    if m.chat.type == enums.ChatType.PRIVATE:
+        kk = await m.reply(text="`Analyzing The User`")
+        await asyncio.sleep(2)
+        mm = await kk.edit_text("`...`")
+        await asyncio.sleep(2)
+        ll = await mm.edit_text("`Processing...`")
+        await asyncio.sleep(3)
+        await ll.delete()
+        await m.reply_photo(
+            PM_PHOTO,
+            caption=PM_START_TEXT.format(
+                m.from_user.mention, m.from_user.id
+            ),
+            reply_markup=InlineKeyboardMarkup(buttons),
         )
-        + HELPABLE[module].__HELP__
-    )
-
-    await query.message.edit_caption(
-      caption=text,
-      reply_markup=InlineKeyboardMarkup(
-        [[InlineKeyboardButton("back", callback_data="help_back")]]
-      )
-    )
-  elif home_match:
-    await query.message.edit_media(
-      media=InputMediaPhoto(PM_PHOTO, caption=PM_START_TEXT),
-      reply_markup=PM_KEYBOARD
-    )
-  elif prev_match:
-    curr_page = int(prev_match.group(1))
-    await query.message.edit_caption(
-      caption=top_text,
-      reply_markup=InlineKeyboardMarkup(
-        paginate_modules(curr_page - 1, HELPABLE, "help")
-      )
-    )
-
-  elif next_match:
-    next_page = int(next_match.group(1))
-    await query.message.edit_caption(
-      caption=top_text,
-      reply_markup=InlineKeyboardMarkup(
-        paginate_modules(next_page + 1, HELPABLE, "help")
-      )
-    )
-
-  elif back_match:
-    await query.message.edit_caption(
-      caption=top_text,
-      reply_markup=InlineKeyboardMarkup(
-        paginate_modules(0, HELPABLE, "help")
-      )
-    )
-
-  elif create_match:
-    text, keyboard = await help_parser(query.from_user.first_name)
-    await query.message.edit_caption(
-      caption=text,
-      reply_markup=keyboard
-    )
-
-  return await inv.answer_callback_query(query.id)
+    if not m.chat.type == enums.ChatType.PRIVATE:
+     try:
+       if m.chat.username == None:
+        await ubot.join_chat(m.chat.id)
+       else:
+        await ubot.join_chat(m.chat.username)
+     except Exception:
+        link = await inv.export_chat_invite_link(m.chat.id)
+        await ubot.join_chat(link)
+     try:
+        kk = await m.reply(text="`Analyzing The User...`")
+        await asyncio.sleep(2)
+        await kk.delete()
+        count = int(await inv.get_chat_members_count(m.chat.id))
+        admins = int(await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS))
+        bots = int(await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS))
+        msgc = int(await ubot.search_messages_count(m.chat.id))
+        await m.reply_photo(
+            "https://telegra.ph/file/83b667369505a14c8fef2.jpg",
+            caption=GROUP_START_TEXT.format(
+                m.chat.title,
+                m.chat.id,
+                count,
+                admins,
+                bots,
+                msgc),
+                reply_markup=InlineKeyboardMarkup(buttons)
+        )
+     except Exception as e:
+         await m.reply_photo("https://c4.wallpaperflare.com/wallpaper/976/117/318/anime-girls-404-not-found-glowing-eyes-girls-frontline-wallpaper-preview.jpg", caption=f"`404 Error Occurred Failed To Start The Invaded`\n\n `{e}`")
+         return
