@@ -5,6 +5,8 @@ from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 import re
 
+HELPABLE = {}
+
 PM_STRING = """
 **Hey Wanna Know My Commands ?**
 
