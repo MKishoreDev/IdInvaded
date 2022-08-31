@@ -24,14 +24,14 @@ async def help_parser(name, keyboard=None):
 @inv.on_message(invaded_cmd("help"))
 async def _help(_, message):
 if message.chat.type == enums.ChatType.PRIVATE:
-  text, keyboard = await help_parser(message.from_user.mention)
-  return await message.reply_photo(
-      photo="https://telegra.ph/file/90a0be7175ad57fcaa21e.jpg",
-      caption=text,
-      reply_markup=keyboard
-    )
+   text, keyboard = await help_parser(message.from_user.mention)
+   return await message.reply_photo(
+       photo="https://telegra.ph/file/90a0be7175ad57fcaa21e.jpg",
+       caption=text,
+       reply_markup=keyboard
+     )
 else:
-    await inv.send_photo(message.chat.id , "https://telegra.ph/file/cd1611c22cc9ad650e0de.jpg" ,  caption=PM_STRING , reply_markup=InlineKeyboardMarkup(
+   await inv.send_photo(message.chat.id , "https://telegra.ph/file/cd1611c22cc9ad650e0de.jpg" ,  caption=PM_STRING , reply_markup=InlineKeyboardMarkup(
        [
            [InlineKeyboardButton("Click Here To Explore" , url="t.me/Invaded_Robot?start=help")]            
        ]))
