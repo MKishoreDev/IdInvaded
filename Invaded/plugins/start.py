@@ -4,6 +4,7 @@ from Invaded import inv, invaded_cmd, ubot
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import filters, enums
 
+PM_PHOTO = "https://telegra.ph/file/e9a7b101e8fcc7e6b7381.jpg"
 buttons = [
     [
         InlineKeyboardButton(text="[► Report Error ◄]", url="https://t.me/Aasf_Cyberking"),
@@ -49,7 +50,7 @@ async def test(_, m: Message):
         await asyncio.sleep(3)
         await ll.delete()
         await m.reply_photo(
-            "https://telegra.ph/file/e9a7b101e8fcc7e6b7381.jpg",
+            PM_PHOTO,
             caption=PM_START_TEXT.format(
                 m.from_user.mention, m.from_user.id
             ),
