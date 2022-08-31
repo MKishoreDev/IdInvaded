@@ -8,8 +8,20 @@
       "description": "Your Api Hash Get It from my.telegram.org",
       "required": true
     },
+    "APP_ID": {
+      "description": "Your Scanner's Api Id Get It from my.telegram.org Els",
+      "required": true
+    },
+    "APP_HASH": {
+      "description": "Your Scanner's Api Hash Get It from my.telegram.org",
+      "required": true
+    },
     "TOKEN": {
       "description": "Your Bot's Token Get It From https://telegram.me/Botfather",
+      "required": true
+    },
+    "SESSION": {
+      "description": "Your String Session Get It By Running strgen.py File",
       "required": true
     },
     "MONGO_DB_URL": {
