@@ -24,4 +24,4 @@ async def restart(_, message):
 @inv.on_message(invaded_cmd("shutdown") & filters.user(GODS))
 async def shutdown(event):
     await message.reply_text("`Shutting Down...`")
-    await System.disconnect()
+    await System.stop()
