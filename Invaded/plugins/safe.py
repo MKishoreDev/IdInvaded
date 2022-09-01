@@ -20,14 +20,12 @@ async def gitpull(_, message):
     os.system("restart.bat")
     os.execv("start.bat", sys.argv)
 
-
 @inv.on_message(invaded_cmd(['restart','reboot']) & filters.user(GODS) & ~filters.forwarded)
 async def restart(_, message):
     await message.reply_text("`Restarting...`")
     await inv.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
     sys.exit()
-
 
 @inv.on_message(invaded_cmd("shutdown") & filters.user(GODS) & ~filters.forwarded)
 async def shutdown(event):
