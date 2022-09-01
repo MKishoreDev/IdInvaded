@@ -231,7 +231,6 @@ def sendlogs(_, m: Message):
     m.reply_photo(
             "https://telegra.ph/file/ba007c74eebc52fd0307d.jpg",
             f"[Click Here]({x}) `To Check Your Logs On Spaceb.in`",
-            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(keyb))
 
 @inv.on_callback_query(filters.regex(r"sendfile"))
