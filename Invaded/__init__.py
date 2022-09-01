@@ -4,6 +4,8 @@ from pyrogram import Client, filters
 from os import getenv
 from dotenv import load_dotenv
 from pymongo import MongoClient
+from typing import Union
+
 
 load_dotenv()
 """
@@ -61,5 +63,12 @@ MOD_NOLOAD = []
 db = MongoClient(MONGO_DB_URL).invaded
 StartTime = time.time()
 
-def invaded_cmd(com):
-  return filters.command([com, f"{com}@{BOT_USERNAME}"], prefixes=["?","$","!","/",".","inv ","invades ","Inv ","Invaded "])
+def invaded_cmd(com: Union[str, list]):
+  if isinstance(com, str):
+    return filters.command([com, f"{com}@{BOT_USERNAME}"], prefixes=["?","$","!","/",".","inv ","invades ","Inv ","Invaded "])
+  elif isinstance(com, list):
+    res = []
+    for x in com:
+      res.extend([x, f"{x}@{BOT_USERNAME}"])
+    return filters.command(res, prefixes=["?","$","!","/",".","inv ","invades ","Inv ","Invaded "])
+  
