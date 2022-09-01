@@ -10,7 +10,7 @@ from time import time
 from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup, Message)
 from Invaded import inv, invaded_cmd, GODS
-from Invaded.utils.pastestuffs import paste, s_paste
+from Invaded.utils.pastestuffs import PasteBin, s_paste
 
 def parse_com(com, key):
   try:
@@ -216,8 +216,11 @@ async def shellrunner(client, message):
 )
 async def sendlogs(_, m: Message):
     logs = run("tail logs.txt")
-    y = await paste(logs)
-    x = await s_paste(logs)
+    y = await PasteBin(logs)
+    x = await s_paste(logs, ext)
+    ext = "txt"
+    s_link = x["url"]
+    s_raw = x["raw"]
     keyb = [
         [
             InlineKeyboardButton("[Spacebin]", url=x),
@@ -228,7 +231,7 @@ async def sendlogs(_, m: Message):
         ],
     ]
     text = f"""
-[Click Here]({x}) `To Check Your Logs On Spaceb.in`
+[Click Here]({s_link}) `To Check Your Logs On Spaceb.in`
 [Click Here]({y}) `To Check Your Logs On batbin.me`
 """
     await m.reply_photo(
