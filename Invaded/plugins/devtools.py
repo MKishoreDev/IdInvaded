@@ -229,7 +229,10 @@ async def sendlogs(_, m: Message):
     ]
     await m.reply_photo(
             "https://telegra.ph/file/ba007c74eebc52fd0307d.jpg",
-            caption=f"[Click Here]({x}) `To Check Your Logs On Spaceb.in`\n\n[Click Here]({y}) `To Check Your Logs On batbin.me`",
+            caption=f"""
+[Click Here]({x}) `To Check Your Logs On Spaceb.in`
+[Click Here]({y}) `To Check Your Logs On batbin.me`
+""",
             reply_markup=InlineKeyboardMarkup(keyb))
 
 @inv.on_callback_query(filters.regex(r"sendfile"))
