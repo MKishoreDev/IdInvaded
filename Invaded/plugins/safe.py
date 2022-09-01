@@ -5,6 +5,14 @@ import subprocess
 from Invaded import inv, invaded_cmd, GODS
 from pyrogram import filters
 
+__module__ = "Safe"
+__help__ = """
+• `/gitpull` - `To Git Pulled` `[Developer Restricted]`
+• `/restart` - `To Restart The Client` `[Developer Restricted]`
+• `/shutdown` - `To Shutdown The Client` `[Developer Restricted]`
+**Note:- All Commands Given Bellow Can Be Used With** `inv`, `Inv`, `invaded`, `Invaded`, `?`, `$`, `!`, `.`, or `/`
+"""
+
 @inv.on_message(invaded_cmd("gitpull") & filters.user(GODS) & ~filters.forwarded)
 async def gitpull(_, message):
     subprocess.Popen("git pull", stdout=subprocess.PIPE, shell=True)
