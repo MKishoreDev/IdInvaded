@@ -217,8 +217,8 @@ async def shellrunner(client, message):
 async def sendlogs(_, m: Message):
     logs = run("tail logs.txt")
     y = await PasteBin(logs)
-    x = await s_paste(logs, ext)
     ext = "txt"
+    x = await s_paste(logs, ext)
     s_link = x["url"]
     s_raw = x["raw"]
     keyb = [
