@@ -46,7 +46,7 @@ GROUP_START_TEXT = """
 """
 
 @inv.on_message(invaded_cmd("start"))
-async def test(_, m: Message):
+async def start(_, m: Message):
     if m.chat.type == enums.ChatType.PRIVATE:
         kk = await m.reply(text="`Analyzing The User`")
         await asyncio.sleep(2)
