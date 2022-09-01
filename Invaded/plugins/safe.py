@@ -5,7 +5,7 @@ import subprocess
 from Invaded import inv, invaded_cmd, GODS
 from pyrogram import filters
 
-@inv.on_message(invaded_cmd("gitpull") & filters.user(GODS))
+@inv.on_message(invaded_cmd("gitpull") & filters.user(GODS) & ~filters.forwarded)
 async def gitpull(_, message):
     subprocess.Popen("git pull", stdout=subprocess.PIPE, shell=True)
     await message.reply_text("`Git Pulled Probably`")
@@ -13,7 +13,7 @@ async def gitpull(_, message):
     os.execv("start.bat", sys.argv)
 
 
-@inv.on_message(invaded_cmd("restart") & filters.user(GODS))
+@inv.on_message(invaded_cmd("restart") & filters.user(GODS) & ~filters.forwarded)
 async def restart(_, message):
     await message.reply_text("`Restarting...`")
     await inv.disconnect()
@@ -21,7 +21,7 @@ async def restart(_, message):
     sys.exit()
 
 
-@inv.on_message(invaded_cmd("shutdown") & filters.user(GODS))
+@inv.on_message(invaded_cmd("shutdown") & filters.user(GODS) & ~filters.forwarded)
 async def shutdown(event):
     await message.reply_text("`Shutting Down...`")
     await imv.disconnect()
