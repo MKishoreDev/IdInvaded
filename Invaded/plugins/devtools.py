@@ -214,10 +214,10 @@ async def shellrunner(client, message):
     & ~filters.forwarded
     & ~filters.via_bot
 )
-def sendlogs(_, m: Message):
+async def sendlogs(_, m: Message):
     logs = run("tail logs.txt")
-    y = PasteBin(logs)
-    x = s_paste(logs)
+    y = await PasteBin(logs)
+    x = await s_paste(logs)
     keyb = [
         [
             InlineKeyboardButton("[Spacebin]", url=x),
@@ -227,7 +227,7 @@ def sendlogs(_, m: Message):
             InlineKeyboardButton("[File]", callback_data="sendfile")
         ],
     ]
-    m.reply_photo(
+    await m.reply_photo(
             "https://telegra.ph/file/ba007c74eebc52fd0307d.jpg",
             caption=f"[Click Here]({x}) `To Check Your Logs On Spaceb.in`\n\n[Click Here]({y}) `To Check Your Logs On batbin.me`",
             reply_markup=InlineKeyboardMarkup(keyb))
