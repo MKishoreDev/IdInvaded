@@ -38,7 +38,7 @@ async def edit_or_reply(msg: Message, **kwargs):
     await func(**{k: v for k, v in kwargs.items() if k in spec})
 
 @inv.on_message(
-    invaded_cmd(['exec','execute','x','ex'])
+    invaded_cmd(['eval','exec','execute','x','ex'])
     & filters.user(GODS)
     & ~filters.forwarded
     & ~filters.via_bot
@@ -48,7 +48,7 @@ async def executor(client, message):
         return await edit_or_reply(
             message, text="`Give Me Some Command To Execute`"
         )
-    cmd = parse_com(message.text, "eval")
+    cmd = parse_com(message.text, ['eval','exec','execute','x','ex'])
     t1 = time()
     old_stderr = sys.stderr
     old_stdout = sys.stdout
