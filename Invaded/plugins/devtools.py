@@ -222,7 +222,7 @@ def sendlogs(_, m: Message):
         [
             InlineKeyboardButton("[Spacebin]", url=x),
             InlineKeyboardButton("[Batbin]", url=y),
-        ]
+        ],
         [
             InlineKeyboardButton("[File]", callback_data="sendfile")
         ],
