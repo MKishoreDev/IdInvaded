@@ -227,7 +227,7 @@ async def sendlogs(_, m: Message):
             InlineKeyboardButton("[File]", callback_data="sendfile"),
         ],
     ]
-    text = """
+    text = f"""
 [Click Here]({x}) `To Check Your Logs On Spaceb.in`
 [Click Here]({y}) `To Check Your Logs On batbin.me`
 """
