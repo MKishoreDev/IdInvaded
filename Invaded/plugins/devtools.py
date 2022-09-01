@@ -32,12 +32,10 @@ async def aexec(code, client, message):
     )
     return await locals()["__aexec"](client, message)
 
-
 async def edit_or_reply(msg: Message, **kwargs):
     func = msg.edit_text if msg.from_user.is_self else msg.reply
     spec = getfullargspec(func.__wrapped__).args
     await func(**{k: v for k, v in kwargs.items() if k in spec})
-
 
 @inv.on_message(
     invaded_cmd(['exec','execute','x','ex'])
@@ -118,12 +116,10 @@ async def executor(client, message):
             message, text=final_output, reply_markup=keyboard
         )
 
-
 @inv.on_callback_query(filters.regex(r"runtime"))
 async def runtime_func_cq(_, cq):
     runtime = cq.data.split(None, 1)[1]
     await cq.answer(runtime, show_alert=True)
-
 
 @inv.on_callback_query(filters.regex("forceclose"))
 async def forceclose_command(_, cq):
@@ -142,7 +138,6 @@ async def forceclose_command(_, cq):
         await cq.answer()
     except:
         return
-
 
 @inv.on_message(
     invaded_cmd(['term','terminal','sh','shell'])
