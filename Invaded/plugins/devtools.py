@@ -3,7 +3,6 @@ import re
 import subprocess
 import sys, traceback, io
 from subprocess import getoutput as run
-from requests import get, post
 from os import getenv
 from inspect import getfullargspec
 from io import StringIO
@@ -11,11 +10,7 @@ from time import time
 from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup, Message)
 from Invaded import inv, invaded_cmd, GODS
-
-def paste(text):
-    url = "https://spaceb.in/api/v1/documents/"
-    res = post(url, data={"content": text, "extension": "txt"})
-    return f"https://spaceb.in/{res.json()['payload']['id']}"
+from Invaded.utils.pastestuffs import PasteBin, s_paste
 
 def parse_com(com, key):
   try:
@@ -221,16 +216,20 @@ async def shellrunner(client, message):
 )
 def sendlogs(_, m: Message):
     logs = run("tail logs.txt")
-    x = paste(logs)
+    y = PasteBin(logs)
+    x = s_paste(logs)
     keyb = [
         [
-            InlineKeyboardButton("[Link]", url=x),
+            InlineKeyboardButton("[Spacebin]", url=x),
+            InlineKeyboardButton("[Batbin]", url=y),
+        ]
+        [
             InlineKeyboardButton("[File]", callback_data="sendfile")
         ],
     ]
     m.reply_photo(
             "https://telegra.ph/file/ba007c74eebc52fd0307d.jpg",
-            caption=f"[Click Here]({x}) `To Check Your Logs On Spaceb.in`",
+            caption=f"[Click Here]({x}) `To Check Your Logs On Spaceb.in`\n\n[Click Here]({y}) `To Check Your Logs On batbin.me`",
             reply_markup=InlineKeyboardMarkup(keyb))
 
 @inv.on_callback_query(filters.regex(r"sendfile"))
