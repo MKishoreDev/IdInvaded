@@ -224,15 +224,16 @@ async def sendlogs(_, m: Message):
             InlineKeyboardButton("[Batbin]", url=y),
         ],
         [
-            InlineKeyboardButton("[File]", callback_data="sendfile")
+            InlineKeyboardButton("[File]", callback_data="sendfile"),
         ],
     ]
-    await m.reply_photo(
-            "https://telegra.ph/file/ba007c74eebc52fd0307d.jpg",
-            caption=f"""
+    text = """
 [Click Here]({x}) `To Check Your Logs On Spaceb.in`
 [Click Here]({y}) `To Check Your Logs On batbin.me`
-""",
+"""
+    await m.reply_photo(
+            "https://telegra.ph/file/ba007c74eebc52fd0307d.jpg",
+            caption=text,
             reply_markup=InlineKeyboardMarkup(keyb))
 
 @inv.on_callback_query(filters.regex(r"sendfile"))
