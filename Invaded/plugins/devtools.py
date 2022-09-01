@@ -233,8 +233,8 @@ async def sendlogs(_, m: Message):
 """
     await m.reply_photo(
             "https://telegra.ph/file/ba007c74eebc52fd0307d.jpg",
-            caption=text,
-            reply_markup=InlineKeyboardMarkup(keyb))
+            caption=text)
+           # reply_markup=InlineKeyboardMarkup(keyb))
 
 @inv.on_callback_query(filters.regex(r"sendfile"))
 def sendfilecallback(_, cq):
