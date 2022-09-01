@@ -5,6 +5,8 @@ from pyrogram.types import Message
 __module__ = "Whois"
 __help__ = """
 • `/whois` - `Get Info/Data Of A User`
+
+**Note:- All Commands Given Bellow Can Be Used With** `inv`, `Inv`, `invaded`, `Invaded`, `?`, `$`, `!`, `.`, or `/`
 """
 
 @inv.on_message(invaded_cmd("whois"))
