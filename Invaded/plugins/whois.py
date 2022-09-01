@@ -2,8 +2,8 @@ from Invaded import inv, invaded_cmd
 from pyrogram import filters
 from pyrogram.types import Message
 
-__MODULE__ = "Whois"
-__HELP__ = """
+__module__ = "Whois"
+__help__ = """
 • `/whois` - `Get Info/Data Of A User`
 """
 
