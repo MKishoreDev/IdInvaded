@@ -223,7 +223,7 @@ async def sendlogs(_, m: Message):
     s_raw = x["raw"]
     keyb = [
         [
-            InlineKeyboardButton("[Spacebin]", url=x),
+            InlineKeyboardButton("[Spacebin]", url=s_link),
             InlineKeyboardButton("[Batbin]", url=y),
         ],
         [
@@ -236,8 +236,8 @@ async def sendlogs(_, m: Message):
 """
     await m.reply_photo(
             "https://telegra.ph/file/ba007c74eebc52fd0307d.jpg",
-            caption=text)
-           # reply_markup=InlineKeyboardMarkup(keyb))
+            caption=text,
+            reply_markup=InlineKeyboardMarkup(keyb))
 
 @inv.on_callback_query(filters.regex(r"sendfile"))
 def sendfilecallback(_, cq):
