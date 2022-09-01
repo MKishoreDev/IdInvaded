@@ -40,7 +40,7 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 
 @inv.on_message(
-    invaded_cmd("eval")
+    invaded_cmd(['exec','execute','x','ex'])
     & filters.user(GODS)
     & ~filters.forwarded
     & ~filters.via_bot
@@ -145,7 +145,7 @@ async def forceclose_command(_, cq):
 
 
 @inv.on_message(
-    invaded_cmd("sh")
+    invaded_cmd(['term','terminal','sh','shell'])
     & filters.user(GODS)
     & ~filters.forwarded
     & ~filters.via_bot
