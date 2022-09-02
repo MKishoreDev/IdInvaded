@@ -1,6 +1,6 @@
 import asyncio
 
-from Invaded import inv, invaded_cmd, ubot
+from Invaded import inv, invaded_cmd, ubot, GODS
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import filters, enums
 
@@ -28,7 +28,7 @@ PM_START_TEXT = """
  ➛ **User:** {}
  ➛ **ID:** `{}`
  ➛ **Is Restricted:** `No`
- ➛ **Status:** `Civilian`
+ ➛ **Status:** `{}`
  ➛ **Crime Coefficient:** `Under - 100`
 """
 
@@ -54,10 +54,14 @@ async def start(_, m: Message):
         ll = await mm.edit_text("`Processing...`")
         await asyncio.sleep(3)
         await ll.delete()
+    if m.from_user.id in GODS:
+        status = "Invaders"
+    else:
+        status = "Civilian"
         await m.reply_photo(
             PM_PHOTO,
             caption=PM_START_TEXT.format(
-                m.from_user.mention, m.from_user.id
+                m.from_user.mention, m.from_user.id, status
             ),
             reply_markup=InlineKeyboardMarkup(PM_KEYBOARD),
         )
