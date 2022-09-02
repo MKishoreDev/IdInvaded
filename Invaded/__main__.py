@@ -11,7 +11,7 @@ from pyrogram import idle, __version__
 now = datetime.datetime.now()
 t = time.localtime()
 current_time = time.strftime("%H:%M:%S", t)
-ts = datetime.datetime.timestamp(dt)
+ts = datetime.datetime.timestamp(now)
 boot_msg = f"""Started Your Invaded Successfully...
 Day: %s
 Time: {current_time}
