@@ -1,7 +1,7 @@
 import logging
 import sys
 import importlib
-import datatime
+import datetime
 
 from Invaded import inv, log
 from Invaded.plugins import ALL_MODULES
