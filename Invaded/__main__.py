@@ -1,7 +1,7 @@
 import logging
 import importlib
 
-from Invaded import inv
+from Invaded import inv, log
 from Invaded.plugins import ALL_MODULES
 from pyrogram import idle
 
