@@ -4,7 +4,7 @@ import time
 import importlib
 import datetime
 
-from Invaded import inv, log
+from Invaded import inv, log, BOT_NAME, UBOT_NAME
 from Invaded.plugins import ALL_MODULES
 from pyrogram import idle, __version__
 
@@ -15,6 +15,8 @@ ts = datetime.datetime.timestamp(now)
 boot_msg = f"""Started Your Invaded Successfully...
 Day: %s
 Time: {current_time}
+Client: {BOT_NAME}
+Scanner: {UBOT_NAME}
 Pyrogram: {__version__}
 Timestamp: {ts}"""
 
