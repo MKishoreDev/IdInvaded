@@ -3,5 +3,6 @@ pyrogram
 tgcrypto
 pymongo
 dnspython
+datetime
 python-dotenv
 requests
