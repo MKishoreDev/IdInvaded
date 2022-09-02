@@ -1,15 +1,21 @@
 import logging
 import sys
+import time
 import importlib
 import datetime
 
 from Invaded import inv, log
 from Invaded.plugins import ALL_MODULES
-from pyrogram import idle
+from pyrogram import idle, __version__
 
 now = datetime.datetime.now()
-boot_msg = """Started Your Invaded Successfully...
-Day: %s"""
+t = time.localtime()
+current_time = time.strftime("%H:%M:%S", t)
+ts = datetime.dateti.timestamp(dt)
+boot_msg = f"""Started Your Invaded Successfully...
+Day: %s
+Time: {current_time}
+Pyrogram: {__version__}"""
 
 FORMAT = "[INFO] %(message)s"
 
