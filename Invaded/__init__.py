@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 from typing import Union
 
-
 load_dotenv()
 """
    API_ID = int(getenv("API_ID"))
@@ -62,6 +61,7 @@ MOD_LOAD = []
 MOD_NOLOAD = []
 db = MongoClient(MONGO_DB_URL).invaded
 StartTime = time.time()
+log = logging.getLogger(__name__)
 
 def invaded_cmd(com: Union[str, list]):
   if isinstance(com, str):
