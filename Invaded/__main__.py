@@ -15,7 +15,8 @@ ts = datetime.datetime.timestamp(dt)
 boot_msg = f"""Started Your Invaded Successfully...
 Day: %s
 Time: {current_time}
-Pyrogram: {__version__}"""
+Pyrogram: {__version__}
+Timestamp: {ts}"""
 
 FORMAT = "[INFO] %(message)s"
 
