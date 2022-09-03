@@ -39,8 +39,6 @@ GROUP_START_TEXT = """
  ➛ **Group:** `{}`
  ➛ **ID:** `{}`
  ➛ **Members Count:** `{}`
- ➛ **Admins Count:** `{}`
- ➛ **Bots Count:** `{}`
  ➛ **Message Count:** `{}`
 """
 
@@ -79,8 +77,6 @@ async def start(_, m: Message):
         await asyncio.sleep(2)
         await kk.delete()
         count = int(await inv.get_chat_members_count(m.chat.id))
-        admins = int(await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS))
-        bots = int(await inv.get_chat_members(m.chat.id, filter=enums.ChatMembersFilter.BOTS))
         msgc = int(await ubot.search_messages_count(m.chat.id))
         await m.reply_photo(
             "https://telegra.ph/file/83b667369505a14c8fef2.jpg",
@@ -88,8 +84,6 @@ async def start(_, m: Message):
                 m.chat.title,
                 m.chat.id,
                 count,
-                admins,
-                bots,
                 msgc),
                 reply_markup=InlineKeyboardMarkup(buttons)
         )
