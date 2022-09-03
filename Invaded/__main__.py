@@ -34,6 +34,7 @@ async def main():
  logging.getLogger("pyrogram").setLevel(logging.INFO)
  for module in ALL_MODULES:
    importlib.import_module("Invaded.plugins." + module) 
+   log.info("Successfully Imported Plugins:" + mofule)
  log.info("Project By AuraMoon55 | Ryu120 | AasfCyberKing")
 
 if __name__ == "__main__":
