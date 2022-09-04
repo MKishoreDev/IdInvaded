@@ -36,7 +36,7 @@ async def main():
    importlib.import_module("Invaded.plugins." + module) 
    log.info("Successfully Imported Plugins:" + module)
  log.info("Project By AuraMoon55 | Ryu120 | AasfCyberKing")
- await inv.send_video(LOG_GROUP_ID, "https://telegra.ph/file/a69feed5d48f6554ac47a.mp4", caption="**Invaded Started Successfully**\n\n`Invaders!!! Let's Defeat The Darkness`")
+ await inv.send_video("@Cityofcreations", "https://telegra.ph/file/a69feed5d48f6554ac47a.mp4", caption="**Invaded Started Successfully**\n\n`Invaders!!! Let's Defeat The Darkness`")
 
 if __name__ == "__main__":
     asyncio.run(main())
