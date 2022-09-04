@@ -7,7 +7,6 @@ import importlib
 import datetime
 
 from Invaded import inv, log, BOT_NAME, UBOT_NAME, LOG_GROUP_ID
-from Invaded.plugins import ALL_MODULES
 from pyrogram import idle, __version__
 from pathlib import Path
 
