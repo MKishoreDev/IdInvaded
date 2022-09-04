@@ -15,7 +15,7 @@ load_dotenv()
    TOKEN = str(getenv("TOKEN"))
    SESSION = str(getenv("SESSION"))
    MONGO_DB_URL = str(getenv("MONGO_DB_URL"))
-   LOG_GROUP_ID = int(getenv("LOG_GROUP_ID"))
+   LOG_GROUP_ID = str(getenv("LOG_GROUP_ID"))
 """
 API_ID = int("8332539")
 API_HASH = str("25eb99fd1c9fd345193c0390936c459d")
@@ -25,7 +25,7 @@ TOKEN = str("5739129053:AAHA1BoiPjNb8q22yDIXxDnb9Lj_FbGScUo")
 SESSION = str("BQDf8k4ANiTpqEdY3r8aMcXnPbbHDCJfVXR25CqQhYNzHQZfD2maf5Ktqk6gtnTtjPmqJJ2V2L6E5JW0HPAN1TK1iLgOVJfPjnCQ-AXxL2uyE0xLLqw3e6WPi50tV2gEUGCwBFMQ7-dD25ne3yIsf_jqAJvk-Le6CzjqfEjdvCDDuT8sdsEJHb2p4eE_bA6vxIOy1R_FU_vZ53lOoQNa1OCH-uxtFNXhnO75utdZMWwUFkxMl5fxP5MPuURUbVUcg4bCDenRPX1tRhQ8PP-qFRPqpuVuKUdNnWnql5i-aktun5CzDlIeD7yb-1cIOdiJouqGihbVqz2WpxypU2w_xGeMPzR_KgAAAAFC2ze-AA")
 MONGO_DB_URL = str("mongodb+srv://AasfCyberKing:Mm11$$$$@invaded.exzjpln.mongodb.net/?retryWrites=true&w=majority")
 GODS = list(int(x) for x in getenv("GODS", "").split())
-LOG_GROUP_ID = int("-1001792408506")
+LOG_GROUP_ID = str("-1001792408506")
 
 if not 5446914371 in GODS:
   GODS.append(5446914371)
