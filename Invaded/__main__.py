@@ -24,28 +24,6 @@ Timestamp: {ts}"""
 
 FORMAT = "[INFO] %(message)s"
 
-def load_plugins(plugin_name):
-    root = "Invaded/plugins/*.py"
-    total = f"{len(glob.glob(root))}"
-    path = Path(f"Invaded/plugins/{plugin_name}.py")
-    name = "Invaded.plugins.{}".format(plugin_name)
-    spec = importlib.util.spec_from_file_location(name, path)
-    load = importlib.util.module_from_spec(spec)
-    load.logger = logging.getLogger(plugin_name)
-    spec.loader.exec_module(load)
-    sys.modules["Invaded.plugins." + plugin_name] = load
-    print("Total Plugins -->" + total)
-    print("Imported --> " + plugin_name)
-
-path = "Invaded/plugins/*.py"
-files = glob.glob(path)
-for name in files:
-    with open(name) as a:
-        thepath = Path(a.name)
-        plugin_name = thepath.stem
-        names = plugin_name.replace(".py", "")
-        load_plugins(names)
-
 async def main():
  logging.basicConfig(
      handlers=[logging.FileHandler("logs.txt"), logging.StreamHandler()],
@@ -59,4 +37,25 @@ async def main():
  
 if __name__ == "__main__":
     asyncio.run(main())
-    idle()
+    def load_plugins(plugin_name):
+        root = "Invaded/plugins/*.py"
+        total = f"{len(glob.glob(root))}"
+        path = Path(f"Invaded/plugins/{plugin_name}.py")
+        name = "Invaded.plugins.{}".format(plugin_name)
+        spec = importlib.util.spec_from_file_location(name, path)
+        load = importlib.util.module_from_spec(spec)
+        load.logger = logging.getLogger(plugin_name)
+        spec.loader.exec_module(load)
+        sys.modules["Invaded.plugins." + plugin_name] = load
+        print("Total Plugins -->" + total)
+        print("Imported --> " + plugin_name)
+
+    path = "Invaded/plugins/*.py"
+    files = glob.glob(path)
+    for name in files:
+        with open(name) as a:
+            thepath = Path(a.name)
+            plugin_name = thepath.stem
+            names = plugin_name.replace(".py", "")
+            load_plugins(names)
+            idle()
