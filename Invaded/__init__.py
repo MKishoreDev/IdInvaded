@@ -15,6 +15,7 @@ load_dotenv()
    TOKEN = str(getenv("TOKEN"))
    SESSION = str(getenv("SESSION"))
    MONGO_DB_URL = str(getenv("MONGO_DB_URL"))
+   LOG_GROUP_ID = int(getenv("LOG_GROUP_ID"))
 """
 API_ID = int("8332539")
 API_HASH = str("25eb99fd1c9fd345193c0390936c459d")
