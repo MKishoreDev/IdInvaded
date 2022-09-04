@@ -34,7 +34,7 @@ def load_plugins(plugin_name):
     load.logger = logging.getLogger(plugin_name)
     spec.loader.exec_module(load)
     sys.modules["Invaded.plugins." + plugin_name] = load
-    print("Total Plugins -->" + toral)
+    print("Total Plugins -->" + total)
     print("Imported --> " + plugin_name)
 
 path = "Invaded/plugins/*.py"
