@@ -37,14 +37,13 @@ def load_plugins(plugin_name):
     print("Total Plugins -->" + total)
     print("Imported --> " + plugin_name)
 
-    path = "Invaded/plugins/*.py"
-    files = glob.glob(path)
-    for name in files:
-        with open(name) as a:
-            thepath = Path(a.name)
-            plugin_name = thepath.stem
-            names = plugin_name.replace(".py", "")
-            load_plugins(names)
+path = "Invaded/plugins/*.py"
+files = glob.glob(path)
+for name in files:
+    with open(name) as a:
+        thepath = Path(a.name)
+        plugin_name = thepath.stem
+        load_plugins(plugin_name.replace(".py", ""))
  
 if __name__ == "__main__":
  logging.basicConfig(
