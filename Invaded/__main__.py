@@ -1,27 +1,43 @@
 import logging
 import glob
 import sys
+import time
 import asyncio
 import importlib
+import datetime
 
-from PokeTide import app
-from pyrogram import idle
+from Invaded import inv, log, BOT_NAME, UBOT_NAME, LOG_GROUP_ID
+from pyrogram import idle, __version__
 from pathlib import Path
 
+now = datetime.datetime.now()
+t = time.localtime()
+current_time = time.strftime("%H:%M:%S", t)
+ts = datetime.datetime.timestamp(now)
+boot_msg = f"""Started Your Invaded Successfully...
+Day: %s
+Time: {current_time}
+Client: {BOT_NAME}
+Scanner: {UBOT_NAME}
+Pyrogram: {__version__}
+Timestamp: {ts}"""
+
+FORMAT = "[INFO] %(message)s"
+
 def load_plugins(plugin_name):
-    root = "PokeTide/plugins/*.py"
+    root = "Invaded/plugins/*.py"
     total = f"{len(glob.glob(root))}"
-    path = Path(f"PokeTide/plugins/{plugin_name}.py")
-    name = "PokeTide.plugins.{}".format(plugin_name)
+    path = Path(f"Invaded/plugins/{plugin_name}.py")
+    name = "Invaded.plugins.{}".format(plugin_name)
     spec = importlib.util.spec_from_file_location(name, path)
     load = importlib.util.module_from_spec(spec)
     load.logger = logging.getLogger(plugin_name)
     spec.loader.exec_module(load)
-    sys.modules["PokeTide.plugins." + plugin_name] = load
+    sys.modules["Invaded.plugins." + plugin_name] = load
     print("Total Plugins -->" + total)
     print("Imported --> " + plugin_name)
 
-path = "PokeTide/plugins/*.py"
+path = "Invaded/plugins/*.py"
 files = glob.glob(path)
 for name in files:
     with open(name) as a:
@@ -30,6 +46,13 @@ for name in files:
         load_plugins(plugin_name.replace(".py", ""))
  
 if __name__ == "__main__":
- print("Successfully Started")
- print("Project By Aasfcyberking For PokeTideBots")
+ logging.basicConfig(
+     handlers=[logging.FileHandler("logs.txt"), logging.StreamHandler()],
+     level=logging.INFO,
+     format=FORMAT,
+     datefmt="[%X]",
+  )
+ log.info(sys.version + "\n\n" +  (boot_msg % (now.strftime("%A"))))
+ logging.getLogger("pyrogram").setLevel(logging.INFO)
+ log.info("Project By AuraMoon55 | Ryu120 | AasfCyberKing")
  idle()
